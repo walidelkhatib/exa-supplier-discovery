@@ -77,7 +77,7 @@ For each query and mode it records latency, cost (`costDollars.total` from the r
 Requires Python 3.10+ and an Exa API key (https://dashboard.exa.ai/api-keys).
 
 ```bash
-git clone <this repo> && cd exa-supplier-discovery
+git clone https://github.com/walidelkhatib/exa-supplier-discovery.git && cd exa-supplier-discovery
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env   # then put your key after EXA_API_KEY=
