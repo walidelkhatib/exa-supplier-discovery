@@ -1,0 +1,8 @@
+# One supplier requirement per line. Lines starting with # are ignored.
+North American manufacturers of aluminum die-cast components for EV powertrains
+Plastic injection molding suppliers in Mexico with IATF 16949 for automotive interior parts
+Precision CNC machining suppliers in Michigan for automotive transmission components
+Suppliers of hot-stamped boron steel body-in-white parts in the United States
+Wire harness manufacturers in Eastern Europe serving automotive OEMs
+Rubber and elastomer sealing suppliers for EV battery enclosures in North America
+Powder metallurgy gear manufacturers for automotive applications in Germany
