@@ -61,7 +61,7 @@ How much the two modes agreed depended on the market. For powder-metal gears in 
 
 ## Limits
 
-- 7 queries with one run each is a small sample, and I haven't scored relevance yet (whether the suppliers returned actually match the query).
+- 7 queries with one run each is a small sample.
 - The website is the model's pick of the company homepage. I filter out social sites, but a directory page still got through twice in 14 runs, both on `auto`.
 - "Mentioned on site" means the page mentions the certification. It doesn't mean the certificate is current. Checking it against the IATF registry would be the next step.
 - A quote that comes from a page Exa read but didn't return as text gets flagged, not dropped.
