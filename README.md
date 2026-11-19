@@ -48,28 +48,25 @@ The queries cover different materials, processes, regions and certifications:
 6. Rubber and elastomer sealing suppliers for EV battery enclosures in North America
 7. Powder metallurgy gear manufacturers for automotive applications in Germany
 
-Results from one run of each query in each mode (November 2026). Costs are what the API reported. "Fields verified" means location, capabilities and certifications that passed the checks above. Relevance is my own hand count of how many of the five suppliers are real companies that match the query.
+Results from one run of each query in each mode (November 2026). Costs are what the API reported. "Fields verified" means location, capabilities and certifications that passed the checks above.
 
-<!-- Regenerate with `python summarize.py` after scoring relevant_in_top5 -->
-| Mode | Queries | Avg latency (s) | Avg cost (USD) | Avg suppliers returned | Fields verified | Avg relevant in top 5 |
-| --- | --- | --- | --- | --- | --- | --- |
-| auto | 7 | 4.6 | 0.0070 | 4.6 | 76/96 (79%) | not scored yet |
-| deep | 7 | 10.1 | 0.0120 | 5.0 | 101/105 (96%) | not scored yet |
+| Mode | Queries | Avg latency (s) | Avg cost (USD) | Avg suppliers returned | Fields verified |
+| --- | --- | --- | --- | --- | --- |
+| auto | 7 | 4.6 | 0.0070 | 4.6 | 76/96 (79%) |
+| deep | 7 | 10.1 | 0.0120 | 5.0 | 101/105 (96%) |
 
 `deep` was about twice as slow and 70% more expensive, but noticeably more complete. It returned five suppliers for every query, while `auto` came back short on two. And 96% of its fields had evidence, against 79% for `auto`.
 
 How much the two modes agreed depended on the market. For powder-metal gears in Germany, they returned the same five companies. For Eastern European wire harnesses, they shared none: `deep` found smaller regional plants, and `auto` leaned toward big names like LEONI and Sumitomo.
 
-<!-- TODO: add a sentence on relevance once relevant_in_top5 is scored -->
-
 ## Limits
 
-- 7 queries with one run each is a small sample, and relevance is my own judgment.
+- 7 queries with one run each is a small sample, and I haven't scored relevance yet (whether the suppliers returned actually match the query).
 - The website is the model's pick of the company homepage. I filter out social sites, but a directory page still got through twice in 14 runs, both on `auto`.
 - "Mentioned on site" means the page mentions the certification. It doesn't mean the certificate is current. Checking it against the IATF registry would be the next step.
 - A quote that comes from a page Exa read but didn't return as text gets flagged, not dropped.
 
-If I kept going, I'd add more queries, an automated relevance judge, a comparison against another search API, and monitoring for supplier changes with Exa Monitors.
+If I kept going, I'd score relevance (by hand first, then with an automated judge), add more queries, a comparison against another search API, and monitoring for supplier changes with Exa Monitors.
 
 ## Running it
 
@@ -90,5 +87,5 @@ To rerun the evaluation (14 searches, about $0.13):
 ```bash
 python eval.py              # writes eval_results.csv
 python eval.py --limit 2    # quick smoke test
-python summarize.py         # prints the results table after you score relevant_in_top5
+python summarize.py         # prints the results table
 ```
